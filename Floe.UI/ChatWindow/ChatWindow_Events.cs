@@ -88,7 +88,7 @@ namespace Floe.UI
 					case "PING":
 						session.SendCtcp(new IrcTarget(e.From), new CtcpCommand(
 							"PONG",
-							e.Command.Arguments.Length > 0 ? e.Command.Arguments[0] : null), true);
+							e.Command.Arguments.Length > 0 ? new string[] { e.Command.Arguments[0] } : new string[0]), true);
 						break;
 					case "CLIENTINFO":
 						session.SendCtcp(new IrcTarget(e.From), new CtcpCommand(

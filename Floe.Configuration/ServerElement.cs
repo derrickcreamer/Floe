@@ -75,6 +75,14 @@ namespace Floe.Configuration
 
 	public sealed class ServerElement : ConfigurationElement
 	{
+		public override bool Equals(object compareTo) { // Equals and GetHashCode are returned to the default implementation here because
+			return System.Runtime.CompilerServices.RuntimeHelpers.Equals(this,compareTo); // WPF can't handle changing hashcodes in ListBox, 
+		} // and ServerElement is the only model class used in a ListBox in Floe. (which means that yes, this is a hack.)
+
+		public override int GetHashCode() {
+			return System.Runtime.CompilerServices.RuntimeHelpers.GetHashCode(this);
+		}
+
 		[ConfigurationProperty("name")]
 		public string Name
 		{

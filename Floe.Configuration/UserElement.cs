@@ -38,8 +38,7 @@ namespace Floe.Configuration
 				return (string)this["userName"]; }
 			set
 			{
-				if (value.Trim().Length == 0) throw new ArgumentException("Nickname cannot be empty.");
-				this["userName"] = value;
+				if (value.Trim().Length != 0) this["userName"] = value;
 			}
 		}
 

@@ -39,7 +39,7 @@
 		<Label Canvas.Left="166" Canvas.Top="55" Content="Server" Height="18" Name="label2" />
 		<TextBox Canvas.Left="166" Canvas.Top="71" Height="23" Name="txtHostname" Width="138">
 			<TextBox.Text>
-				<Binding ElementName="lstServers" Path="SelectedItem.Hostname" Mode="TwoWay" NotifyOnSourceUpdated="True">
+				<Binding ElementName="lstServers" Path="SelectedItem.Hostname" Mode="TwoWay">
 					<Binding.ValidationRules>
 						<ExceptionValidationRule/>
 					</Binding.ValidationRules>
@@ -49,7 +49,7 @@
 		<Label Canvas.Left="310" Canvas.Top="74" Content=":" Height="18" Name="label3" Width="9"/>
 		<TextBox Canvas.Left="320" Canvas.Top="71" Height="23" Name="txtPort" Width="52">
 			<TextBox.Text>
-				<Binding ElementName="lstServers" Path="SelectedItem.Port" Mode="TwoWay" NotifyOnSourceUpdated="True">
+				<Binding ElementName="lstServers" Path="SelectedItem.Port" Mode="TwoWay">
 					<Binding.ValidationRules>
 						<ExceptionValidationRule/>
 					</Binding.ValidationRules>
@@ -61,7 +61,7 @@
 		<CheckBox Canvas.Left="165" Canvas.Top="122" Content="Auto Reconnect" Height="16" Name="chkAutoReconnect" IsChecked="{Binding ElementName=lstServers, Path=SelectedItem.AutoReconnect, Mode=TwoWay}"/>
 		<Label ToolTip="{StaticResource ttOnConnect}" Canvas.Left="166" Canvas.Top="143" Content="On Connect:" Height="28" Name="label4" />
 		<TextBox Canvas.Left="301" Canvas.Top="115" Height="23" Name="textBox1" Width="71">
-			<Binding ElementName="lstServers" Mode="TwoWay" NotifyOnSourceUpdated="True" Path="SelectedItem.Password">
+			<Binding ElementName="lstServers" Mode="TwoWay" Path="SelectedItem.Password">
 				<Binding.ValidationRules>
 					<ExceptionValidationRule />
 				</Binding.ValidationRules>

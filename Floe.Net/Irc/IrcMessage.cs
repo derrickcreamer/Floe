@@ -64,6 +64,7 @@ namespace Floe.Net
 
 		internal static IrcMessage Parse(string data)
 		{
+			if(data.Length == 0) return new IrcMessage("");
 			StringBuilder sb = new StringBuilder();
 			List<string> para = new List<string>();
 			int size = data.Length > 512 ? 512 : data.Length;

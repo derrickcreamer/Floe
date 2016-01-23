@@ -77,8 +77,13 @@ namespace Floe.UI
 				}
 
 				var keepNickCandidates = _nickCandidates;
-				if (nextNick != null)
-				{
+				if (nextNick != null) {
+					if(!txtInput.Text.Contains(' ')) {
+						nextNick += ": ";
+					}
+					else {
+						nextNick += " ";
+					}
 					txtInput.Text = txtInput.Text.Substring(0, start) + nextNick + txtInput.Text.Substring(end);
 					txtInput.CaretIndex = start + nextNick.Length;
 				}
