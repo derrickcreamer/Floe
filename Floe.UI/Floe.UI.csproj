@@ -64,6 +64,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Application\App_Uncluttered.cs" />
     <Compile Include="Application\App_Ignore.cs" />
     <Compile Include="Application\App_Interface.cs" />
     <Compile Include="Application\App_Logging.cs" />

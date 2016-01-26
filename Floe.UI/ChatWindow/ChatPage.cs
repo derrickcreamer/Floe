@@ -74,6 +74,25 @@ namespace Floe.UI
 			set { this.SetValue(IsCloseableProperty, value); System.Windows.Input.CommandManager.InvalidateRequerySuggested(); }
 		}
 
+		public bool IsUncluttered
+		{
+			get { return App.ExistsInUnclutteredList(this.Target); }
+			set
+			{
+				if(value && !App.ExistsInUnclutteredList(this.Target))
+				{
+					App.AddUncluttered(this.Target.Name);
+				}
+				else
+				{
+					if(!value && App.ExistsInUnclutteredList(this.Target))
+					{
+						App.RemoveUncluttered(this.Target.Name);
+					}
+				}
+			}
+		}
+
 		public ChatPage()
 		{
 			this.Header = this.Title = "";

@@ -259,6 +259,7 @@
 									<Setter.Value>
 										<ContextMenu>
 											<MenuItem Command="local:ChatWindow.DetachCommand" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Parent.PlacementTarget}" CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}"/>
+											<MenuItem Header="Hide joins, parts, quits, nick changes" IsCheckable="True" IsChecked="{Binding RelativeSource={RelativeSource Self},Path=Parent.PlacementTarget.Page.IsUncluttered,Mode=TwoWay}"/>
 										</ContextMenu>
 									</Setter.Value>
 								</Setter>

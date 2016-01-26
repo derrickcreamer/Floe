@@ -57,6 +57,13 @@ namespace Floe.Configuration
 			set { this["ignore"] = value; }
 		}
 
+		[ConfigurationProperty("uncluttered",DefaultValue="")]
+		public string Uncluttered
+		{
+			get { return (string)this["uncluttered"]; }
+			set { this["uncluttered"] = value; }
+		}
+
 		[ConfigurationProperty("dcc")]
 		public DccElement Dcc
 		{

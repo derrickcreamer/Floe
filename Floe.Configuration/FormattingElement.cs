@@ -107,6 +107,12 @@ namespace Floe.Configuration
 			set { this["autoSizeColumn"] = value; this.OnPropertyChanged("AutoSizeColumn"); }
 		}
 
+		[ConfigurationProperty("hideAllClutter", DefaultValue = false)]
+		public bool HideAllClutter {
+			get { return (bool)this["hideAllClutter"]; }
+			set { this["hideAllClutter"] = value; this.OnPropertyChanged("HideAllClutter"); }
+		}
+
 		public event PropertyChangedEventHandler PropertyChanged;
 
 		private void OnPropertyChanged(string name)

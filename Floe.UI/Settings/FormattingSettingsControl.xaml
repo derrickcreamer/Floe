@@ -12,6 +12,7 @@
 		<ToolTip x:Key="ttAttentionOnOwnNick">When your current, primary, or alternate nicknme is typed by another user, highlight the line and flash the taskbar icon if the window is not active.</ToolTip>
 		<ToolTip x:Key="ttAttentionRegex">A list of regular expression patterns (one per line) to highlight the lines for and flash the taskbar icon if the window is not active.</ToolTip>
 		<ToolTip x:Key="ttTimestampFormat">The format of the timestamp, when displayed. This is a .NET date format string.</ToolTip>
+		<ToolTip x:Key="ttHideClutter">Always hide joins, parts, quits, and nickname changes in all channels.</ToolTip>
 	</UserControl.Resources>
 	<Canvas>
 		<GroupBox Canvas.Left="12" Canvas.Top="3" Header="Font" Height="123" Name="groupBox2" Width="360" BorderBrush="#FFC3C3C3">
@@ -63,8 +64,11 @@
 		</TextBox>
 		<CheckBox ToolTip="{StaticResource ttUseTabularView}" Canvas.Left="18" Canvas.Top="154" Content="Use Tabular View" Height="16" Name="chkUseTabularView" IsChecked="{Binding Source={x:Static local:App.Settings}, Path=Current.Formatting.UseTabularView, Mode=TwoWay}"/>
 		<CheckBox ToolTip="{StaticResource ttAutoSizeColumn}" Canvas.Left="37" Canvas.Top="176" IsEnabled="{Binding ElementName=chkUseTabularView, Path=IsChecked}" IsChecked="{Binding Source={x:Static local:App.Settings}, Path=Current.Formatting.AutoSizeColumn}" Content="Auto Size Column" Height="16" Name="checkBox2" />
-		<CheckBox ToolTip="{StaticResource ttAttentionOnOwnNick}" Canvas.Left="18" Canvas.Top="207" Content="Attention On Own Nickname" Height="16" Name="checkBox1"
+		<CheckBox ToolTip="{StaticResource ttAttentionOnOwnNick}" Canvas.Left="18" Canvas.Top="207" Content="Attention on own nickname" Height="16" Name="checkBox1"
 				  IsChecked="{Binding Source={x:Static local:App.Settings}, Path=Current.Formatting.AttentionOnOwnNickname}"/>
+		<CheckBox ToolTip="{StaticResource ttHideClutter}" Canvas.Left="18" Canvas.Top="229" Width="174" Name="chkHideClutter" IsChecked="{Binding Source={x:Static local:App.Settings}, Path=Current.Formatting.HideAllClutter, Mode=TwoWay}">
+			<TextBlock TextWrapping="Wrap" Text="Hide all joins, parts, quits, and nick changes"/>
+		</CheckBox>
 		<TextBox ToolTip="{StaticResource ttAttentionRegex}" Canvas.Left="202" Canvas.Top="149" Height="139" Name="textBox1" Width="170" AcceptsReturn="True"
 				 Text="{Binding Source={x:Static local:App.Settings}, Path=Current.Formatting.AttentionPatterns}" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" />
 		<Label ToolTip="{StaticResource ttAttentionRegex}" Canvas.Left="202" Canvas.Top="127" Content="Attention RegEx Patterns" Height="28" Name="label2" />

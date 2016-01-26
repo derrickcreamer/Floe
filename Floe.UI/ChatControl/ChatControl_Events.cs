@@ -308,7 +308,7 @@ namespace Floe.UI
 
 		private void Session_Joined(object sender, IrcJoinEventArgs e)
 		{
-			bool isIgnored = App.IsIgnoreMatch(e.Who, IgnoreActions.Join);
+			bool isIgnored = App.IsUncluttered(this.Target) || App.IsIgnoreMatch(e.Who, IgnoreActions.Join);
 
 			if (!this.IsServer && this.Target.Equals(e.Channel))
 			{
@@ -323,7 +323,7 @@ namespace Floe.UI
 
 		private void Session_Parted(object sender, IrcPartEventArgs e)
 		{
-			bool isIgnored = App.IsIgnoreMatch(e.Who, IgnoreActions.Part);
+			bool isIgnored = App.IsUncluttered(this.Target) || App.IsIgnoreMatch(e.Who, IgnoreActions.Part);
 
 			if (!this.IsServer && this.Target.Equals(e.Channel))
 			{
@@ -338,7 +338,7 @@ namespace Floe.UI
 
 		private void Session_NickChanged(object sender, IrcNickEventArgs e)
 		{
-			bool isIgnored = App.IsIgnoreMatch(e.Message.From, IgnoreActions.NickChange);
+			bool isIgnored = App.IsUncluttered(this.Target) || App.IsIgnoreMatch(e.Message.From, IgnoreActions.NickChange);
 
 			if (this.IsChannel && _nickList.Contains(e.OldNickname))
 			{
@@ -385,7 +385,7 @@ namespace Floe.UI
 
 		private void Session_UserQuit(object sender, IrcQuitEventArgs e)
 		{
-			bool isIgnored = App.IsIgnoreMatch(e.Who, IgnoreActions.Quit);
+			bool isIgnored = App.IsUncluttered(this.Target) || App.IsIgnoreMatch(e.Who, IgnoreActions.Quit);
 
 			if (this.IsChannel && _nickList.Contains(e.Who.Nickname))
 			{

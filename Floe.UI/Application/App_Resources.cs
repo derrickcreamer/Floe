@@ -73,6 +73,7 @@ namespace Floe.UI
 
 			App.RefreshAttentionPatterns();
 			App.LoadIgnoreMasks();
+			App.LoadUncluttered();
 
 			using (var sr = new System.IO.StreamReader(typeof(App).Assembly.GetManifestResourceStream(
 				string.Format("{0}.Resources.Help.txt", typeof(App).Namespace))))
